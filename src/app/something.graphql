@@ -1,0 +1,29 @@
+query HeaderNavItemQuery () {
+	layoutCollection {
+	  items{
+		header{
+				  navItemsCollection{
+			items{
+			  ... on NavItem{
+				    text,
+					description,
+					href
+			  }
+			  ... on NavItemGroup{
+				  name,
+				navItemsCollection{
+				  items{
+					... on NavItem{
+						text,
+						description,
+						href
+					}
+				  }
+				}
+			  }
+			}
+				  }
+		}
+	  }
+	}
+}
